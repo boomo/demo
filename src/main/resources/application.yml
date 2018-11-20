@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.0.97:2200/syncweb_v4_1_8
+    username: SCS
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis:
+  mapper-locations: classpath:com/example/demo/mapper/*.xml
+  type-aliases-package: com/example/demo/model
+user:
+  username: root
+  password: root
+demo:
+  date: 2018-01-01
+logging:
+  path: /home/springboot/demo/
+  file: /home/springboot/demo/springboot_demo.log
+  level:
+    root: warn
+    com:
+      example:
+        demo: info

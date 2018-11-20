@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.SpecialValueMapper">
+
+	<resultMap type="SpecialValue" id="SpecialValueMap">
+		<result property="taskId" column="task_id"/>
+		<result property="colIdArray" column="colid_array"/>
+		<result property="specialValue" column="special_value"/>
+	</resultMap>
+	
+	<insert id="add" parameterType="SpecialValue">
+		insert into SpecialValue values(#{taskId}, #{colIdArray}, #{specialValue})
+	</insert>
+	
+	<insert id="batchAdd" parameterType="List">
+		insert into specialvalue(task_id,colid_array,special_value) values 
+		<foreach collection="list" item="item" separator=",">
+		(#{item.taskId}, #{item.colIdArray}, #{item.specialValue})
+		</foreach>
+	</insert>
+    
+    <delete id="delByTaskId" parameterType="int">
+    	delete from SpecialValue where task_id=#{0}
+    </delete>
+    
+    <select id="getByTaskId" parameterType="int" resultMap="SpecialValueMap">
+		select * from SpecialValue where task_id=#{0}
+    </select>
+    
+    <delete id="batchDelByTaskId" parameterType="String">
+    	delete from SpecialValue where task_id in 
+    	<foreach collection="taskIds" open="(" close=")" separator="," item="id">#{id}</foreach>
+    </delete>
+    
+</mapper>
+
