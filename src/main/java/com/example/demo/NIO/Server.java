@@ -163,6 +163,7 @@ public class Server {
         }
 
         if (outq.size() == 0){
+            /*写完之后，从SelectionKey中移除写事件。否则 如果Channel准备好写了，但又无数据可写，显然是不合理的*/
             sk.interestOps(SelectionKey.OP_READ);
         }
 
