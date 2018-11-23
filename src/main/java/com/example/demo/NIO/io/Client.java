@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
@@ -23,7 +24,7 @@ public class Client {
             /*创建一个客户端socket, 并连接到服务器的8000端口*/
             clientSocket = new Socket();
             try {
-                clientSocket.connect(new InetSocketAddress("localhost", 8000));
+                clientSocket.connect(new InetSocketAddress(InetAddress.getLocalHost(), 8000));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -37,6 +38,7 @@ public class Client {
                 LockSupport.parkNanos(sleep_time);
                 os.print("o");
                 os.print("\n");
+
                 os.flush();
 
                 is = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
