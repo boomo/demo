@@ -12,6 +12,7 @@ public class RealData implements Callable {
 
     @Override
     public String call() throws Exception {
+        System.out.println("ReadData Thread is running");
         StringBuffer sb = new StringBuffer();
         for (int i = 0;i<5;i++){
             sb.append(content);
@@ -21,6 +22,7 @@ public class RealData implements Callable {
                 e.printStackTrace();
             }
         }
+        System.out.println("ReadData Thread is finished");
         return sb.toString();
     }
 }

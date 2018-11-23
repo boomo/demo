@@ -3,6 +3,7 @@ package com.example.demo.concurrent.future;
 import java.util.concurrent.*;
 
 public class FutureDemo {
+    /*使用 FutureTask + Callable 方式*/
     public static void main(String[] args) {
         FutureTask<String> task = new FutureTask<String>(new RealData("test"));
         ExecutorService exec = Executors.newFixedThreadPool(2);
