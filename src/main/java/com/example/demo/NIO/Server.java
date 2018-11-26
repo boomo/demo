@@ -33,9 +33,9 @@ public class Server {
             ssc.configureBlocking(false);
             InetSocketAddress isa = new InetSocketAddress(InetAddress.getLocalHost(), 8000);
 //            InetSocketAddress isa = new InetSocketAddress(8000);
+            /*服务端channel注册到selector上*/
             ssc.socket().bind(isa);
 
-            /*服务端channel注册到selector上*/
             SelectionKey selectionKey = ssc.register(selector, SelectionKey.OP_ACCEPT);
 
             for (;;){
