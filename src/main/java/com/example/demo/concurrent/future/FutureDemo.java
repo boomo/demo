@@ -5,6 +5,7 @@ import java.util.concurrent.*;
 public class FutureDemo {
     /*使用 FutureTask + Callable 方式*/
     public static void main(String[] args) {
+        System.out.println();
         FutureTask<String> task = new FutureTask<String>(new RealData("test"));
         ExecutorService exec = Executors.newFixedThreadPool(2);
         exec.execute(task);

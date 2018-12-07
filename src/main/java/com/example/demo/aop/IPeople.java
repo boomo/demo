@@ -4,4 +4,6 @@ public interface IPeople {
     void work();
 
     void meditating();
+
+    void sport();
 }

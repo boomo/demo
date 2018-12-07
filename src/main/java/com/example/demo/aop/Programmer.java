@@ -24,4 +24,9 @@ public class Programmer implements IPeople{
     public void meditating(){
         System.out.println("how does this framework work?");
     }
+
+    @Override
+    public void sport() {
+        System.out.println("running and play badminton");
+    }
 }

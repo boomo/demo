@@ -15,7 +15,7 @@ public class OneWorkDay {
 
 //        people.work();
 
-        IPeople clear = (IPeople) new CleanProxy(people).bind();
+        IPeople clear = (IPeople) new MyProxy(people).bind();
         clear.meditating();
     }
 }
