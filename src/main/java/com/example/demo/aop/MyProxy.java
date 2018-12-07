@@ -30,12 +30,12 @@ public class MyProxy implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Exception {
         /*method -- 连接点，使用反射 对调用的方法前后进行一些其他操作*/
         Class nClass  = this.proxy.getClass();
-        Method make = nClass.getDeclaredMethod("makeMeal", null);
+        Method make = nClass.getDeclaredMethod("start", null);
         make.invoke(this.proxy, null);
 
         Object ret = method.invoke(proxyed, args);
 
-        Method clear = nClass.getDeclaredMethod("washDishes", null);
+        Method clear = nClass.getDeclaredMethod("end", null);
         clear.invoke(this.proxy, null);
         return ret;
     }
