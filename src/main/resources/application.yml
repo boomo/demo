@@ -9,8 +9,8 @@ mybatis:
   mapper-locations: classpath:com/example/demo/mapper/*.xml
   type-aliases-package: com/example/demo/model
 user:
-  username: root
-  password: root
+  username: admin
+  password: adminn
 demo:
   date: 2018-01-01
 logging:
